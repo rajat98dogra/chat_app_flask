@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{%block head%}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+{%endblock%}
+{%block body%}
+
+<div id="main-section">
+    <nav id="'sidebar">
+    {%for room in rooms%}
+    <p class="select-room">{{room|title}}</p>
+    {%endfor%}
+        <a href="{{url_for('logout')}}">LOG OUT</a>
+    </nav>
+</div>
+{{res.user}}
+
+<div  id="display-section" class="alert alert-primary" role="alert"></div>
+<div class="right-panel">
+
+<div id="list">
+{%if res.mes%}
+{%for i in res.mes%}
+    {{i}}
+    {%endfor%}
+{%endif%}
+</div>
+<div>
+    <input type="text" id="mes" name="text" placeholder="Type here.." required/>
+    <button type="button" id="send_message">SEND </button>
+</div>
+</div>
+<script type="text/javascript">const username=`{{res.user}}`</script>
+<script src="{{url_for('static',filename='index.js' )}}"></script>
+
+{%endblock%}

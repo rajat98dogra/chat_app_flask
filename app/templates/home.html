@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+
+{%block title%}LOG IN{%endblock%}
+{%block head%}
+{%endblock%}
+{%block body%}
+
+<h2>{{res.user|title}}</h2><br>
+<a href="{{url_for('logout')}}">LOG OUT</a>
+<a href="{{url_for('chats')}}">CHAT</a>
+
+{%endblock%}
